@@ -1,0 +1,863 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nb-NO" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Webinar 1: Grunnleggende programmering &#8212; Programmeringskurs for Vestland fylkeskommune</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'programmer/webinar1';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Søk" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nb-NO"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Programmeringskurs for Vestland fylkeskommune - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Programmeringskurs for Vestland fylkeskommune - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Programmeringskurs
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="webinar1/webinar1-bilder.html">Webinar 1: Grunnleggende programmering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webinar2/webinar2-bilder.html">Webinar 2: Anaylysere og presentere data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../innledning-programmering.html">Installasjon av Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regne-python.html">Python som kalkulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../loekker.html">for- og while-løkker</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/tork73/progkurs/master?urlpath=tree/docs/programmer/webinar1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/programmer/webinar1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Webinar 1: Grunnleggende programmering</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mal">Mål:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-om-editorer-og-ideer">Litt om editorer og IDEer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-1-start-tidlig">Tips 1: start tidlig</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-2-start-enkelt">Tips 2: Start enkelt!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper-i-python">Datatyper i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-3-ikke-programmering-pa-prover-i-forste-termin">Tips 3: Ikke programmering på prøver i første termin</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser-og-lokker">Betingelser og løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokker">Løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokker">For-løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke">While-løkke</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4-oppgave-6-del-2-eksamen-1p-2023">Eksempel 4 (Oppgave 6, del 2, eksamen 1P 2023)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5-fra-eksempelsett-2-1p-2021">Eksempel 5 (Fra eksempelsett 2, 1P 2021)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-oppgave-13-eksempelsett-1p-2021">Eksempel 6 (Oppgave 13, eksempelsett 1P 2021)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-oppgave-6-eksamen-1p-varen-2022">Eksempel 7 (Oppgave 6, eksamen 1P Våren 2022)</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="webinar-1-grunnleggende-programmering">
+<h1>Webinar 1: Grunnleggende programmering<a class="headerlink" href="#webinar-1-grunnleggende-programmering" title="Permalink to this heading">#</a></h1>
+<section id="mal">
+<h2>Mål:<a class="headerlink" href="#mal" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Litt om editorer og IDEer</p></li>
+<li><p>Litt om programmering med elever</p></li>
+<li><p>Løkker og betingelser</p></li>
+<li><p>Litt om funksjoner og moduler</p></li>
+</ul>
+</section>
+<section id="litt-om-editorer-og-ideer">
+<h2>Litt om editorer og IDEer<a class="headerlink" href="#litt-om-editorer-og-ideer" title="Permalink to this heading">#</a></h2>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>IDE = Integrated Development Environment.</p>
+<p>En IDE er et program som er laget for å hjelpe deg med å skrive kode og å kjøre koden.</p>
+<p><strong>IDEer:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://thonny.org/">Thonny</a></p></li>
+<li><p><a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a></p></li>
+<li><p><a class="reference external" href="https://pythonhosted.org/spyder/">Spyder</a></p></li>
+<li><p><a class="reference external" href="https://code.visualstudio.com/">Visual Studio Code</a></p></li>
+<li><p><a class="reference external" href="https://jupyterlab.readthedocs.io/en/stable/">Jupyter lab</a></p></li>
+<li><p><a class="reference external" href="https://jupyter.org/">Jupyter Notebook</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/">Google Colab</a></p></li>
+<li><p><a class="reference external" href="https://repl.it/">Repl.it</a></p></li>
+<li><p><a class="reference external" href="https://trinket.io/">Trinket</a></p></li>
+</ul>
+<p><img alt="image-2.png" src="programmer/attachment:image-2.png" /></p>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<section id="tips-1-start-tidlig">
+<h3>Tips 1: start tidlig<a class="headerlink" href="#tips-1-start-tidlig" title="Permalink to this heading">#</a></h3>
+<blockquote>
+<div><p><strong>Regn ut</strong></p>
+<p>a)   <span class="math notranslate nohighlight">\(1+2\cdot 4\)</span></p>
+<p>b)   <span class="math notranslate nohighlight">\(2^5-1\)</span></p>
+<p>c)   <span class="math notranslate nohighlight">\(\dfrac{4+5\cdot 6^2}{7}\)</span></p>
+</div></blockquote>
+<center>
+<table>
+  <thead style="background-color: #abcdef;">
+    <tr>
+      <th><strong>Symbol</strong></th>
+      <th><strong>Operasjon</strong></th>
+      <th><strong>Eksempel</strong></th>
+      <th><strong>Resultat</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>+</td>
+      <td>Addisjon</td>
+      <td>1+2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>-</td>
+      <td>Subtraksjon</td>
+      <td>23 - 11</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>Multiplikasjon</td>
+      <td>4.3*5.5</td>
+      <td>23.65</td>
+    </tr>
+    <tr>
+      <td>/</td>
+      <td>Divisjon</td>
+      <td>15/4</td>
+      <td>3.75</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>Potens</td>
+      <td>2**3</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>//</td>
+      <td>Heltallsdivisjon</td>
+      <td>10//4</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>%</td>
+      <td>Kongruens modulo</td>
+      <td>28 % 12</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+</section>
+<section id="tips-2-start-enkelt">
+<h3>Tips 2: Start enkelt!<a class="headerlink" href="#tips-2-start-enkelt" title="Permalink to this heading">#</a></h3>
+<p>Formelen for arealet <span class="math notranslate nohighlight">\(A\)</span> til et trapes er gitt ved formelen</p>
+<div class="math notranslate nohighlight">
+\[ A = \dfrac{a+b}{2}\cdot h \]</div>
+<p>Lag et program som regner ut arealet til trapeset når <span class="math notranslate nohighlight">\(a=4.3\)</span>, <span class="math notranslate nohighlight">\(b=6.5\)</span> og <span class="math notranslate nohighlight">\(h=2.1\)</span>.</p>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+</section>
+<section id="datatyper-i-python">
+<h3>Datatyper i Python<a class="headerlink" href="#datatyper-i-python" title="Permalink to this heading">#</a></h3>
+<p>Det finnes mange forskjellige datatyper i Python. De vanligste er:</p>
+<center>
+<table>
+  <thead style="background-color: #abcdef;">
+    <tr>
+      <th><strong>Kode</strong></th>
+      <th><strong>Datatype</strong></th>
+      <th><strong>Eksempel</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>int</td>
+      <td>heltall</td>
+      <td>4343</td>
+    </tr>
+    <tr>
+      <td>float</td>
+      <td>desimaltall</td>
+      <td>3.14159</td>
+    </tr>
+    <tr>
+      <td>str</td>
+      <td>streng (tekst)</td>
+      <td>"Eksempeltekst"</td>
+    </tr>
+    <tr>
+      <td>bool</td>
+      <td>boolsk verdi</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <td>list</td>
+      <td>liste</td>
+      <td>[3, 4, "sko", -4]</td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+</section>
+<section id="tips-3-ikke-programmering-pa-prover-i-forste-termin">
+<h3>Tips 3: Ikke programmering på prøver i første termin<a class="headerlink" href="#tips-3-ikke-programmering-pa-prover-i-forste-termin" title="Permalink to this heading">#</a></h3>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+</section>
+</section>
+<section id="betingelser-og-lokker">
+<h2>Betingelser og løkker<a class="headerlink" href="#betingelser-og-lokker" title="Permalink to this heading">#</a></h2>
+<section id="betingelser">
+<h3>Betingelser<a class="headerlink" href="#betingelser" title="Permalink to this heading">#</a></h3>
+<center>
+<table>
+  <thead style="background-color: #abcdef;">
+    <tr>
+      <th><strong>Relasjon</strong></th>
+      <th><strong>Betydning</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>a == b</td>
+      <td>tester om a er lik b</td>
+    </tr>
+    <tr>
+      <td>a != b</td>
+      <td>tester om a er ulik b</td>
+    </tr>
+    <tr>
+      <td>a < b</td>
+      <td>tester om a er mindre enn b</td>
+    </tr>
+    <tr>
+      <td>a <= b</td>
+      <td>tester om a er mindre eller lik b</td>
+    </tr>
+    <tr>
+      <td>a > b</td>
+      <td>tester om a er større enn b</td>
+    </tr>
+    <tr>
+      <td>a >= b</td>
+      <td>tester om a er større enn eller lik b</td>
+    </tr>
+    <!-- Flere rader etter behov -->
+  </tbody>
+</table>
+</center>
+</section>
+<section id="eksempel">
+<h3>Eksempel<a class="headerlink" href="#eksempel" title="Permalink to this heading">#</a></h3>
+<p><img alt="image-2.png" src="programmer/attachment:image-2.png" /></p>
+<p>Lag et program som simulerer et terningskast.</p>
+<ul class="simple">
+<li><p>Dersom vi får mindre enn fire øyne, skal programmet skrive ut «Du tapte!».</p></li>
+<li><p>Dersom vi får fire eller fem øyne, skal det skrive ut «Du vant en liten premie!».</p></li>
+<li><p>Dersom vi får seks øyne, skal det skrive ut «Du vant en stor premie!».</p></li>
+</ul>
+</section>
+</section>
+<section id="lokker">
+<h2>Løkker<a class="headerlink" href="#lokker" title="Permalink to this heading">#</a></h2>
+<section id="for-lokker">
+<h3>For-løkker<a class="headerlink" href="#for-lokker" title="Permalink to this heading">#</a></h3>
+<section id="eksempel-1">
+<h4>Eksempel 1<a class="headerlink" href="#eksempel-1" title="Permalink to this heading">#</a></h4>
+<p>Skriv ut de fem første kvadrattallene.</p>
+<blockquote>
+<div><p><strong>Fra Pythons innebygde hjelp-funksjon:</strong></p>
+<p>range(j) gir oss tallene 0,1, …,j-1.</p>
+<p>range(i,j)gir oss tallene i,i+1, …,j-1.</p>
+<p>range(i, j, k) gir oss tallene i, i + k, i + 2k … , i + m - k, der m er  største heltall slik at i + m <span class="math notranslate nohighlight">\(\cdot\)</span> k &lt; j.</p>
+</div></blockquote>
+</section>
+</section>
+<section id="eksempel-2">
+<h3>Eksempel 2<a class="headerlink" href="#eksempel-2" title="Permalink to this heading">#</a></h3>
+<p>Finn summen av de 100 første oddetallen.</p>
+</section>
+<section id="eksempel-3">
+<h3>Eksempel 3<a class="headerlink" href="#eksempel-3" title="Permalink to this heading">#</a></h3>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>Maren jobbar i ein butikk, og har fått i oppgåve å stable hermetikkboksar. Ho har 150 boksar som ho kan nytta. Boksane skal stablast slik at det er éin boks i øvste rad, to i nest-øvste, tre i rada under der og så vidare. Sjå bilete.
+Kor mange rader kan ho stable boksane i?</p>
+</section>
+<section id="while-lokke">
+<h3>While-løkke<a class="headerlink" href="#while-lokke" title="Permalink to this heading">#</a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Så</span> <span class="n">lenge</span> <span class="n">betingelse</span> <span class="n">er</span> <span class="n">sann</span><span class="p">,</span> <span class="n">gjør</span> <span class="n">dette</span><span class="p">:</span>
+    <span class="n">kode</span>
+</pre></div>
+</div>
+<p>Eksempel på en enkel <code class="docutils literal notranslate"><span class="pre">while</span></code>-løkke i Python:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">teller</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">teller</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">teller</span><span class="p">)</span>
+    <span class="n">teller</span> <span class="o">+=</span> <span class="mi">1</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Ferdig&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+Ferdig
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="eksempel-4-oppgave-6-del-2-eksamen-1p-2023">
+<h3>Eksempel 4 (Oppgave 6, del 2, eksamen 1P 2023)<a class="headerlink" href="#eksempel-4-oppgave-6-del-2-eksamen-1p-2023" title="Permalink to this heading">#</a></h3>
+<p>I denne oppgaven skal du arbeide med linjestykker som settes sammen til en figur.</p>
+<p>Skissen nedenfor viser de 16 første linjestykkene i figuren. Lengden av et linjestykke er alltid 90 % av lengden av det forrige linjestykket. Det første linjestykket er 100 cm langt.</p>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>a) Bestem summen av lengdene av de 8 første linjestykkene i figuren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">l</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">):</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">S</span> <span class="o">+</span> <span class="n">l</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">l</span><span class="o">*</span><span class="mf">0.9</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Summen er </span><span class="si">{</span><span class="n">S</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> cm&quot;</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Summen er 569.53 cm
+</pre></div>
+</div>
+</div>
+</div>
+<p>b) Lag et program som du kan bruke til å bestemme summen av lengdene av linjestykkene dersom det er mange linjestykker i figuren.</p>
+<p>Hvor mange linjestykker må vi ha med i figuren dersom summen av lengdene skal bli minst 9 meter?</p>
+<p>c) Hvor mange prosent øker summen av lengdene dersom vi øker antall linjestykker i figuren fra 50 til 100?</p>
+</section>
+<section id="eksempel-5-fra-eksempelsett-2-1p-2021">
+<h3>Eksempel 5 (Fra eksempelsett 2, 1P 2021)<a class="headerlink" href="#eksempel-5-fra-eksempelsett-2-1p-2021" title="Permalink to this heading">#</a></h3>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>De tre figurene er laget av fyrstikker.</p>
+<p>Figur 1 består av ett lite kvadrat, figur 2 består av fire små kvadrater, og figur 3 består
+av ni små kvadrater.</p>
+<p>Tenk deg at du har 10 000 fyrstikker.</p>
+<p>Du skal lage de tre figurene, og så fortsette å lage figurer etter samme mønster, én i
+hver størrelse.</p>
+<p>a) Hvor mange figurer kan du lage?</p>
+<p>b) Hvor mange fyrstikker vil du ha igjen når du har laget den siste figuren?</p>
+</section>
+<section id="eksempel-6-oppgave-13-eksempelsett-1p-2021">
+<h3>Eksempel 6 (Oppgave 13, eksempelsett 1P 2021)<a class="headerlink" href="#eksempel-6-oppgave-13-eksempelsett-1p-2021" title="Permalink to this heading">#</a></h3>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>Ovenfor ser du tre figurer. Figurene er satt sammen av små kvadrater.</p>
+<p>Tenk deg at du skal fortsette å lage figurer etter samme mønster.</p>
+<p>a) Lag en algoritme som du kan bruke til å bestemme hvor mange små kvadrater du totalt trenger for å lage de 100 første figurene.</p>
+<p>b) Bruk algoritmen og bestem hvor mange små kvadrater du trenger.</p>
+</section>
+<section id="eksempel-7-oppgave-6-eksamen-1p-varen-2022">
+<h3>Eksempel 7 (Oppgave 6, eksamen 1P Våren 2022)<a class="headerlink" href="#eksempel-7-oppgave-6-eksamen-1p-varen-2022" title="Permalink to this heading">#</a></h3>
+<p><img alt="image.png" src="programmer/attachment:image.png" /></p>
+<p>Ovanfor ser du tre figurar. Figurane er sette saman av små klossar. Roar vil fortsetje å lage figurar etter same mønster.</p>
+<p>a) Kor mange klossar treng han for å lage figur 5?</p>
+<p>b) Kor mange klossar treng han til saman for å lage dei 10 første figurane?</p>
+<p>Roar har 10 000 klossar. Han vil starte med den minste figuren og lage éin figur i kvar storleik</p>
+<p>c) Kor mange figurar kan han lage?</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tork73/progkurs",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./programmer"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mal">Mål:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#litt-om-editorer-og-ideer">Litt om editorer og IDEer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-1-start-tidlig">Tips 1: start tidlig</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-2-start-enkelt">Tips 2: Start enkelt!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper-i-python">Datatyper i Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips-3-ikke-programmering-pa-prover-i-forste-termin">Tips 3: Ikke programmering på prøver i første termin</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser-og-lokker">Betingelser og løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betingelser">Betingelser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel">Eksempel</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lokker">Løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lokker">For-løkker</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-2">Eksempel 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-3">Eksempel 3</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lokke">While-løkke</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-4-oppgave-6-del-2-eksamen-1p-2023">Eksempel 4 (Oppgave 6, del 2, eksamen 1P 2023)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-5-fra-eksempelsett-2-1p-2021">Eksempel 5 (Fra eksempelsett 2, 1P 2021)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-6-oppgave-13-eksempelsett-1p-2021">Eksempel 6 (Oppgave 13, eksempelsett 1P 2021)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-7-oppgave-6-eksamen-1p-varen-2022">Eksempel 7 (Oppgave 6, eksamen 1P Våren 2022)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tor Espen Kristensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="nb-NO" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Python som kalkulator &#8212; Programmeringskurs for Vestland fylkeskommune</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'regne-python';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Søk" href="search.html" />
+    <link rel="next" title="for- og while-løkker" href="loekker.html" />
+    <link rel="prev" title="Installasjon av Python" href="innledning-programmering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="nb-NO"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Programmeringskurs for Vestland fylkeskommune - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Programmeringskurs for Vestland fylkeskommune - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Programmeringskurs
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="programmer/webinar1/webinar1-bilder.html">Webinar 1: Grunnleggende programmering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programmer/webinar2/webinar2-bilder.html">Webinar 2: Anaylysere og presentere data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="innledning-programmering.html">Installasjon av Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Python som kalkulator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="loekker.html">for- og while-løkker</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/regne-python.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Søk" aria-label="Søk" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Python som kalkulator</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-be-brukeren-om-input">Å be brukeren om input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper">Datatyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-regner-ut-en-sum-i-python">Vi regner ut en sum i Python</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="python-som-kalkulator">
+<h1>Python som kalkulator<a class="headerlink" href="#python-som-kalkulator" title="Permalink to this heading">#</a></h1>
+<p>Her skal du lære hvordan du kan sette inn i formler i Python. Du skal blant annet lære hvordan du</p>
+<ul class="simple">
+<li><p>lagrer tall og andre typer objekter i Python</p></li>
+<li><p>hvordan du kan sette inn i formler</p></li>
+<li><p>bruke løkker til å gjenta utregninger flere ganger.</p></li>
+</ul>
+<p>Du skal også lære litt om ulike datatyper.</p>
+<p><img alt="" src="bilder/hund-maskin.jpg" /></p>
+<p>Før vi kommer igang og skal lære mer om programmering, kan du se filmen nedenfor. I den forklarer vi litt om hvordan vi skriver og kjører  programmer som vi har laget.</p>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/585432330?h=c06659d317&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p>Her er lenkene som er nevnt i filmen:</p>
+<ul class="simple">
+<li><p>Anaconda: <a class="reference external" href="https://www.anaconda.com/products/individual">https://www.anaconda.com/products/individual</a></p></li>
+<li><p>Thonny: <a class="reference external" href="https://thonny.org/">https://thonny.org/</a></p></li>
+</ul>
+<hr class="docutils" />
+<p>Vi har følgende regneoperasjoner i Python:</p>
+<table style="width:400px">
+    <thead>
+        <tr>
+            <th scope="col" style="text-align: center;">Symbol</th>
+            <th scope="col" style="text-align: center;">Operasjon</th>
+            <th scope="col" style="text-align: center;">Eksempel</th>
+            <th scope="col" style="text-align: center;">Resultat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center;">+</td>
+            <td style="text-align: center;">Addisjon</td>
+            <td style="text-align: center;">1+2</td>
+            <td style="text-align: center;">3</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">&nbsp;-&nbsp;</td>
+            <td style="text-align: center;">Subtraksjon</td>
+            <td style="text-align: center;">23-11</td>
+            <td style="text-align: center;">12</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">*</td>
+            <td style="text-align: center;">Multiplikasjon</td>
+            <td style="text-align: center;">4.3*5.5</td>
+            <td style="text-align: center;">23.65</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">**</td>
+            <td style="text-align: center;">Potens</td>
+            <td style="text-align: center;">2**3</td>
+            <td style="text-align: center;">8</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">//</td>
+            <td style="text-align: center;">Heltallsdivisjon</td>
+            <td style="text-align: center;">10//4</td>
+            <td style="text-align: center;">2</td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">%</td>
+            <td style="text-align: center;">Modulo (restledd)</td>
+            <td style="text-align: center;">28 % 12</td>
+            <td style="text-align: center;">4</td>
+        </tr>
+    </tbody>
+</table>
+<br>Merk at du må bruke punktum som desimalskilletegn i Python.<br><br>
+<p></p>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/393901548?h=0c012f82c0&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p>Regn ut følgende oppgaver i konsollen nedenfor:&nbsp;</p>
+<p><span class="math notranslate nohighlight">\( 34+5\cdot 32-1\)</span></p>
+<p><span class="math notranslate nohighlight">\( 2^5-2^3\)</span></p>
+<p>Hva er klokken om 1000 timer til, når den er 10.00 nå?</p>
+<iframe src="https://trinket.io/embed/python3/bf133cd102?outputOnly=true&amp;runOption=console&amp;showInstructions=true" width="100%" height="200" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""></iframe>
+<br> Hvis du får meldingen «Connection to server timed out...» må du klikke på &gt;_Console i menyen til trinket. &nbsp;
+<section id="eksempel-1">
+<h2>Eksempel 1<a class="headerlink" href="#eksempel-1" title="Permalink to this heading">#</a></h2>
+<p>I filmen nedenfor får du se hvordan vi kan skrive inne ulike størrelser som vi ønsker å sette inn i en formel. Vi skal først se hva</p>
+<div class="math notranslate nohighlight">
+\[ T_n = \dfrac{n\cdot (n+1)}{2}\]</div>
+<p>blir når <span class="math notranslate nohighlight">\(n = 100\)</span>. Deretter skal vi regne ut verdien til</p>
+<div class="math notranslate nohighlight">
+\[ s = v\cdot t + 0.5\cdot a \cdot t^2\]</div>
+<p>når <span class="math notranslate nohighlight">\(v = 10\)</span>, <span class="math notranslate nohighlight">\(t=1.5\)</span> og <span class="math notranslate nohighlight">\(a = -9.81\)</span>.</p>
+<div style="padding:56.31% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/394405430?title=0&amp;byline=0&amp;portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen" allowfullscreen=""></iframe></div>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<div class="note admonition">
+<p class="admonition-title">Oppgave 1</p>
+<p>Formelen for arealet (A) til et trapes er gitt formelen</p>
+<div class="math notranslate nohighlight">
+\[ A = \dfrac{a+b}{2}\cdot h \]</div>
+<p><img alt="" src="bilder/trapes.png" /></p>
+<p>Lag et program som regner ut arealet til trapeset når <span class="math notranslate nohighlight">\(a = 4.3\)</span>, <span class="math notranslate nohighlight">\(b = 3.2\)</span> og <span class="math notranslate nohighlight">\(h = 2.0\)</span>.</p>
+</div>
+<iframe src="https://trinket.io/embed/python3/a973537f95" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""></iframe>
+</section>
+<section id="a-be-brukeren-om-input">
+<h2>Å be brukeren om input<a class="headerlink" href="#a-be-brukeren-om-input" title="Permalink to this heading">#</a></h2>
+<p>I filmen nedenfor viser vi hvordan vi kan bruke kommandoen input til å be om informasjon fra brukeren av programmet.</p>
+<p>I filmen har vi skrivet inn følgende kode:</p>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">navn</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Skriv inn navnet ditt: &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hei&quot;</span><span class="p">,</span> <span class="n">navn</span><span class="p">,</span> <span class="s2">&quot;Håper du får en fin dag!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Når programmet kjøres, vil brukeren bli bedt om å skrive inn navnet sitt. Dette blir da lagret i variabelen navn. Denne kan vi så bruke videre. På den andre linjen har vi printet den til skjermen sammen med tekstene «Hei» og «Håper du får en fin dag».</p>
+<div style="padding:56.31% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/435695906?h=979d4e7cfb&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+</section>
+<section id="datatyper">
+<h2>Datatyper<a class="headerlink" href="#datatyper" title="Permalink to this heading">#</a></h2>
+<p>De ulike objektene vi bruker når vi programmerer i Python er av det som vi kaller ulike datatyper. I første omgang er det tre datatyper som er viktig å kjenne til. Disse er int (heltall), float (desimaltall) og str (tekst-strenger). I filmen nedenfor viser vi hvorfor det er viktig å være bevisst dette når vi programmerer.</p>
+<div style="padding:56.31% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/394447529?h=e23dcaf237&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<p>Det er mange flere typer datatyper enn strenger og desimaltall i Python. Tabellen nedenfor viser fem slike datatyper som du vil møte etter hvert som du jobber med Python: </p></p>
+<table border="0" cellspacing="0" cellpadding="3">
+    <tbody>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p><b>Kode</b></p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p><b>Datatype</b></p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p><b>Eksempel</b></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p>int</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>Heltall</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>434342</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p>float</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>Desimaltall</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>3.14159</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p>str</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>Streng (tekst)</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>"Her er en tekst"</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p>bool</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>Boolsk verdi</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>False</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="150" valign="top">
+                            <p>list</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>Liste</p>
+                        </td>
+                        <td width="150" valign="top">
+                            <p>[2, 4, "Sko", False]</p>
+                        </td>
+                    </tr>
+    </tbody>
+</table><br>
+</section>
+<section id="vi-regner-ut-en-sum-i-python">
+<h2>Vi regner ut en sum i Python<a class="headerlink" href="#vi-regner-ut-en-sum-i-python" title="Permalink to this heading">#</a></h2>
+<p>Vi har tidligere brukt blokkprogrammering til å regne ut summer. I filmen nedenfor skal vi regne ut summen</p>
+<div class="math notranslate nohighlight">
+\[1+2+3+\cdots+100\]</div>
+<p>ved å lage et lite program.</p>
+<p>Vi skal da lage en for-løkke og vi skal bruke range-kommandoen. Dette svarer til nøyaktig det vi gjorde tidligere når vi brukte blokker.</p>
+<p>Se på følgende kode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="mi">0</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">101</span><span class="p">):</span> 
+   <span class="n">s</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">i</span><span class="o">**</span><span class="mi">2</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Kommandoen range(1, 101) gir oss altså tallene 1, 2, 3, …, 100. Her har vi også brukt innrykk i linjen der det står s = s + i**2. Dette må vi gjøre for å fortelle programmet hva som skal være med i løkken vi lager. Siden print(s) ikke har et innrykk, så skal ikke s printes ut i hvert steg i løkken.</p>
+<div style="padding:56.31% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/394422844?h=78cfd3e533&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div class="admonition-oppgave-2 admonition">
+<p class="admonition-title">Oppgave 2</p>
+<p>Se om du kan lage et program som regner ut summen</p>
+<div class="math notranslate nohighlight">
+\[ 1^2+2^2+3^2 +\cdots + 99^2 + 100^2\]</div>
+</div>
+<iframe src="https://trinket.io/embed/python3/9f43d63965" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""></iframe>
+<p>I filmen nedenfor ser du en løsning av oppgaven på ovenfor.</p>
+<div style="padding:56.31% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/394432647?h=6fd00d9431&title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+<div class="note admonition">
+<p class="admonition-title">Oppgave 3</p>
+<p>Lag et program som ber brukeren om et helt tall <span class="math notranslate nohighlight">\(n\)</span> og som deretter regner ut summen av de <span class="math notranslate nohighlight">\(n\)</span> første oddetallene.</p>
+<p>Du kan starte programmet ved å skrive n = int(input(«Skriv inn et naturlig tall:» )</p>
+</div>
+<iframe src="https://trinket.io/embed/python3/f6a79ae9bd" width="100%" height="400" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen=""></iframe></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "tork73/progkurs",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="innledning-programmering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">forrige</p>
+        <p class="prev-next-title">Installasjon av Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="loekker.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">neste</p>
+        <p class="prev-next-title">for- og while-løkker</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eksempel-1">Eksempel 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-be-brukeren-om-input">Å be brukeren om input</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#datatyper">Datatyper</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vi-regner-ut-en-sum-i-python">Vi regner ut en sum i Python</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Tor Espen Kristensen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
